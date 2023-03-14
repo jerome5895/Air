@@ -1,15 +1,23 @@
 import sys
 
-
+# Function to concatenete array to a string
 def array_to_string(array, separateur):
+    new_string = ""
     for string in array:
-        string += separateur
-    return string
+        new_string += string + separateur
+    return new_string
 
+# Function to manage IndexErrors
+def if_errors():
+    if len(sys.argv) < 4:
+        print("Invalid input. Please provide at least two arguments and one separation.")
+        sys.exit()
 
-
-array = sys.argv[1:-2]
+# Call functions and convert globales variables
+if_errors()
+array = sys.argv[1:-1]
 separateur = sys.argv[-1]
-string = array_to_string(array, separateur)
+new_string = array_to_string(array, separateur)
 
-print(string)
+# Print out result
+print(new_string)

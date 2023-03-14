@@ -17,6 +17,7 @@ def separation():
         words.append(current_word)
     return words
 
+# Function to separate in terms of argument 2
 def without_sep(words):
     nv_separateur = sys.argv[2]
     array = []
@@ -32,14 +33,15 @@ def without_sep(words):
         words = []
     return array, words
 
-
 # Function to print out without []
 def without_brackets(array):
     for i in range(len(array)):
         print((array[i]), end=' ')
     print()
 
-
+# Convert globales variables
 words = separation()
 array = without_sep(words)
+
+# Print out result
 without_brackets(array)

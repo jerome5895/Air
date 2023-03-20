@@ -1,8 +1,6 @@
 import sys
 
-argument = sys.argv[1:]
-
-
+# Function to separate argument by string 
 def separate(argument):
     separator = "fusion"
     if separator in argument:
@@ -14,6 +12,7 @@ def separate(argument):
         sys.exit()
     return array1, array2
 
+# Function to concatenete two arrays
 def concatenete(array1, array2):
     new_list = []
     for list in [array1], [array2]:
@@ -21,7 +20,12 @@ def concatenete(array1, array2):
             new_list.append(element)
     return new_list
 
+# Convert globales variables
+argument = sys.argv[1:]
 
+# Resolution
 array1, array2 = separate(argument)
 new_list = concatenete(array1, array2)
+
+# Print out result
 print(f"{new_list}")

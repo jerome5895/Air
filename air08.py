@@ -43,6 +43,12 @@ def value_error(array1, array2):
         print("Invalid input. Please provide only numbers before and after 'fusion'.")
         sys.exit()
 
+# Function to print out without [] and ''
+def without_brackets(new_array):
+    for i in range(len(new_array)):
+        print(new_array[i], end=" ")
+    print()
+
 # Convert globales variables
 argument = sys.argv[1:]
 
@@ -53,4 +59,4 @@ value_error(array1, array2)
 new_array = sorted_fusion(array1, array2)
 
 # Print out result
-print(new_array)
+without_brackets(new_array)

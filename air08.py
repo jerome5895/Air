@@ -24,11 +24,32 @@ def sorted_fusion(array1, array2):
         new_array[i], new_array[min_index] = new_array[min_index], new_array[i]
     return new_array
 
+# Function to manage index errors
+def index_error(array1, array2):
+    try:
+        if len(array1) == 0 or len(array2) == 0:
+            raise IndexError
+    except IndexError:
+        print("Invalid input. Please provide numbers before and after 'fusion'.")
+        sys.exit()
+
+# Function to manage value errors
+def value_error(array1, array2):
+    try:
+        for value in array1 + array2:
+            if not value.isdigit():
+                raise ValueError
+    except ValueError:
+        print("Invalid input. Please provide only numbers before and after 'fusion'.")
+        sys.exit()
+
 # Convert globales variables
 argument = sys.argv[1:]
 
 # Resolution
 array1, array2 = separate(argument)
+index_error(array1, array2)
+value_error(array1, array2)
 new_array = sorted_fusion(array1, array2)
 
 # Print out result

@@ -1,13 +1,11 @@
 import sys
 
 # Function to separate argument
-def separation():
-    string_a_couper = sys.argv[1]
-    separateurs = [' ', '\t', '\n']
+def separation(string_to_cut, separators):
     words = []
     current_word = ""
-    for char in string_a_couper:
-        if char in separateurs:
+    for char in string_to_cut:
+        if char in separators:
             if current_word:
                 words.append(current_word)
                 current_word = ''    
@@ -18,16 +16,15 @@ def separation():
     return words
 
 # Function to separate in terms of argument 2
-def without_sep(words):
-    nv_separateur = sys.argv[2]
+def without_sep(words, new_separators):
     array = []
-    found_separateur = False
+    found_separator = False
     for word in words:
-        if word == nv_separateur:
-            found_separateur = True
+        if word == new_separators:
+            found_separator = True
             break
         array.append(word)
-    if found_separateur:
+    if found_separator:
         words = words[len(array)+1:]
     else:
         words = []
@@ -40,8 +37,11 @@ def without_brackets(array):
     print()
 
 # Convert globales variables
-words = separation()
-array = without_sep(words)
+string_to_cut = sys.argv[1]
+separators = [' ', '\t', '\n']
+new_separators = sys.argv[2]
+words = separation(string_to_cut, separators)
+array = without_sep(words, new_separators)
 
 # Print out result
 without_brackets(array)

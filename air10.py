@@ -7,7 +7,7 @@ def index_error():
         print("Invalid input. Usage: python " + sys.argv[0] + " FILENAME")
         sys.exit()
 
-# Function to manage file error
+# Function to read file in argument
 def read_file():
     try:
         with open(filename, 'r') as file:

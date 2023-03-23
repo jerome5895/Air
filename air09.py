@@ -12,12 +12,15 @@ def to_left(argument):
     new_string.append(changed_word)
     return new_string
 
-def try_except():
+# Function to manage index and value errors
+def try_except(argument):
     if len(sys.argv) < 3:
         print("Invalid input. Please provide at least two arguments.")
         sys.exit()
     try:
-        argument = sys.argv[1:]
+        for value in argument:
+            if value.isdigit():
+                raise ValueError
     except ValueError:
         print("Invalid input. Please provide only string, no integers.")
         sys.exit()
@@ -30,7 +33,8 @@ def without_bracket(new_string):
     print()
 
 # Convert globales variables
-argument = try_except()
+argument = sys.argv[1:]
+try_except(argument)
 new_string = to_left(argument)
 
 # Print out result

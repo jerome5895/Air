@@ -7,16 +7,18 @@ def array_to_string(array, separateur):
         new_string += string + separateur
     return new_string
 
-# Function to manage IndexErrors
+# Function to manage index errors
 def if_errors():
     if len(sys.argv) < 4:
         print("Invalid input. Please provide at least two arguments and one separation.")
         sys.exit()
 
-# Call functions and convert globales variables
-if_errors()
+# Convert globales variables
 array = sys.argv[1:-1]
 separateur = sys.argv[-1]
+
+# Resolution
+if_errors()
 new_string = array_to_string(array, separateur)
 
 # Print out result

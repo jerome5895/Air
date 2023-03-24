@@ -1,21 +1,30 @@
 import sys
 
-list = sys.argv[1:]
-
-if len(list) <= 1:
-        print("Invalid input. Please provide at least two numbers.")
-        sys.exit()
-
-def quicksort(list):
-    pivot = list.pop()
+# Function to sort a list of integers by Quicksort
+def quicksort(liste):
+    if len(sys.argv) <= 2:
+        return liste
+    pivot = liste.pop()
     petit = []
     grand = []
-    for number in list:
+    for number in liste:
         if number < pivot:
-             petit.append(number)
+            petit.append(number)
         else:
-             grand.append(number)
-    return quicksort(petit) + [pivot] + quicksort(grand)
+            grand.append(number)
+    return quicksort(petit)+[pivot]+quicksort(grand)
 
+def without_bracket(array):
+    for i in range(len(array)):
+        print(array[i], end=" ")
+    print()
 
-quicksort(list)
+# Convert globales variables
+liste = sys.argv[1:]
+
+# Resolution
+array = quicksort(liste)
+without_bracket(array)
+
+# Print out result
+print(array)

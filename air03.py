@@ -1,7 +1,7 @@
 import sys
 
 # Function to find any alone argument
-def find_alone():
+def find_alone(array):
     counts = {}
     count = 0
     for i in range(0, len(array)):
@@ -17,14 +17,18 @@ def find_alone():
     return array
 
 # Function to manage IndexErrors
-def if_errors():
-    if len(sys.argv) < 4:
+def if_errors(array):
+    if len(array) < 3:
         print("Invalid input. Please provide at least three arguments.")
         sys.exit()
+    return array
 
 # Convert globales variables
 array = sys.argv[1:]
 
-# Call functions and print out
-if_errors()
-find_alone()
+# Resolution
+if_errors(array)
+new_array = find_alone(array)
+
+# Print out result
+print(new_array)

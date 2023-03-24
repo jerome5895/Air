@@ -40,6 +40,8 @@ def without_brackets(array):
 string_to_cut = sys.argv[1]
 separators = [' ', '\t', '\n']
 new_separators = sys.argv[2]
+
+# Resolution
 words = separation(string_to_cut, separators)
 array = without_sep(words, new_separators)
 

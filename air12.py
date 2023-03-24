@@ -1,30 +1,30 @@
 import sys
 
 # Function to sort a list of integers by Quicksort
-def quicksort(liste):
-    if len(sys.argv) <= 2:
-        return liste
-    pivot = liste.pop()
-    petit = []
-    grand = []
-    for number in liste:
-        if number < pivot:
-            petit.append(number)
+def quicksort(array):
+    if len(array) <= 1:
+        return array
+    pivot = array[0]
+    left = []
+    right = []
+    for x in array[1:]:
+        if x < pivot:
+            left.append(x)
         else:
-            grand.append(number)
-    return quicksort(petit)+[pivot]+quicksort(grand)
+            right.append(x)
+    return quicksort(left) + [pivot] + quicksort(right)
 
+# Function to print out without "" or ", "
 def without_bracket(array):
     for i in range(len(array)):
         print(array[i], end=" ")
     print()
 
 # Convert globales variables
-liste = sys.argv[1:]
+array = [int(liste) for liste in sys.argv[1:]]
 
 # Resolution
-array = quicksort(liste)
-without_bracket(array)
+array = quicksort(array)
 
 # Print out result
-print(array)
+without_bracket(array)

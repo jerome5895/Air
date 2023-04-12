@@ -14,17 +14,34 @@ def quicksort(array):
             right.append(x)
     return quicksort(left) + [pivot] + quicksort(right)
 
+# Function to manage value errors
+def if_only_numb():
+    try:
+        array = [int(array) for array in sys.argv[1:]]
+    except ValueError:
+        print("Invalid input. Please provide only numbers.")
+        sys.exit()
+    return array
+
+# Function to manage index errors
+def if_index_err():
+    if len(sys.argv) < 3:
+        print("Invalid input. Please provide at least two numbers.")
+        sys.exit()
+
 # Function to print out without "" or ", "
-def without_bracket(array):
-    for i in range(len(array)):
-        print(array[i], end=" ")
+def without_bracket(new_array):
+    for i in range(len(new_array)):
+        print(new_array[i], end=" ")
     print()
 
 # Convert globales variables
-array = [int(liste) for liste in sys.argv[1:]]
+
 
 # Resolution
-array = quicksort(array)
+if_index_err()
+if_only_numb()
+new_array = quicksort(array)
 
 # Print out result
-without_bracket(array)
+without_bracket(new_array)

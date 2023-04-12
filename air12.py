@@ -15,12 +15,11 @@ def quicksort(array):
     return quicksort(left) + [pivot] + quicksort(right)
 
 # Function to manage value errors
-def if_only_numb():
-    try:
-        array = [int(array) for array in sys.argv[1:]]
-    except ValueError:
-        print("Invalid input. Please provide only numbers.")
-        sys.exit()
+def if_only_numb(array):
+    for x in array:
+        if not isinstance(x, int):
+            print("Invalid input. Please provide only numbers.")
+            sys.exit()
     return array
 
 # Function to manage index errors
@@ -36,11 +35,11 @@ def without_bracket(new_array):
     print()
 
 # Convert globales variables
-
+array = [int(array) for array in sys.argv[1:]]
 
 # Resolution
 if_index_err()
-if_only_numb()
+array = if_only_numb(array)
 new_array = quicksort(array)
 
 # Print out result

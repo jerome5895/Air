@@ -16,7 +16,7 @@ def find_alone(array):
         count = 0
     return array
 
-# Function to manage IndexErrors
+# Function to manage index errors
 def if_errors(array):
     if len(array) < 3:
         print("Invalid input. Please provide at least three arguments.")

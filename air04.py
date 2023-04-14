@@ -9,7 +9,7 @@ def if_repet(array):
             result += array[i]
     return result
 
-# Function to manage IndexErrors
+# Function to manage index errors
 def try_except():
     try:
         array = sys.argv[1]

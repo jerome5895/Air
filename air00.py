@@ -1,11 +1,11 @@
 import sys
 
 # Function to separate argument
-def separation(string_a_couper, separateurs):
+def separation(string_to_cut, separators):
     words = []
     current_word = ""
-    for char in string_a_couper:
-        if char in separateurs:
+    for char in string_to_cut:
+        if char in separators:
             if current_word:
                 words.append(current_word)
                 current_word = ''    
@@ -16,7 +16,7 @@ def separation(string_a_couper, separateurs):
     return words
 
 # Function to manage argument errors
-def errors(string_a_couper):
+def errors(string_to_cut):
     if len(sys.argv) != 2:
         print("Invalid input. Please provide one argument.")
         sys.exit()
@@ -28,12 +28,12 @@ def without_brackets(words):
     print()
 
 # Convert globales variables
-string_a_couper = sys.argv[1]
-separateurs = [' ', '\t', '\n']
+string_to_cut = sys.argv[1]
+separators = [' ', '\t', '\n']
 
 # Resolution
-errors(string_a_couper)
-words = separation(string_a_couper, separateurs)
+errors(string_to_cut)
+words = separation(string_to_cut, separators)
 
 # Print out result
 without_brackets(words)

@@ -1,10 +1,10 @@
 import sys
 
 # Function to concatenete array to a string
-def array_to_string(array, separateur):
+def array_to_string(array, separator):
     new_string = ""
     for string in array:
-        new_string += string + separateur
+        new_string += string + separator
     return new_string
 
 # Function to manage index errors
@@ -15,11 +15,11 @@ def if_errors():
 
 # Convert globales variables
 array = sys.argv[1:-1]
-separateur = sys.argv[-1]
+separator = sys.argv[-1]
 
 # Resolution
 if_errors()
-new_string = array_to_string(array, separateur)
+new_string = array_to_string(array, separator)
 
 # Print out result
 print(new_string)

@@ -3,9 +3,9 @@ import sys
 # Function to display if string is not in array
 def if_string(array, string):
     list_not = ""
-    for str in array:
-        if string not in str:
-            list_not += str + ", "
+    for arr in array:
+        if string not in arr:
+            list_not += arr + ", "
     return list_not
 
 # Function to manage index errors

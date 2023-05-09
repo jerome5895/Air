@@ -1,7 +1,24 @@
-from os import listdir
+import unittest
 
-from os.path import isfile, join
 
-fichiers = [f for f in listdir(Air) if isfile(join(Air, f))]
+class TestString(unittest.TestCase):
+    def test_split(self):
+        string_to_cut = "Bonjour les gars"
+        separators = [' ', '\t', '\n']
+        words = []
+        current_word = ""
+        for char in string_to_cut:
+            if char in separators:
+                if current_word:
+                    words.append(current_word)
+                    current_word = ''    
+            else:
+                current_word += char
+        if current_word:
+            words.append(current_word)
+        return words
+        
 
-print(fichiers)
+if __name__ == "__main__":
+    if words == ["Bonjour", "les", "gars"]
+    unittest.main()

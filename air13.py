@@ -1,24 +1,18 @@
 import unittest
+import importlib.util
+import air00
 
+class TestScript(unittest.TestCase):
+    script_path = "air00.py"
 
-class TestString(unittest.TestCase):
-    def test_split(self):
-        string_to_cut = "Bonjour les gars"
-        separators = [' ', '\t', '\n']
-        words = []
-        current_word = ""
-        for char in string_to_cut:
-            if char in separators:
-                if current_word:
-                    words.append(current_word)
-                    current_word = ''    
-            else:
-                current_word += char
-        if current_word:
-            words.append(current_word)
-        return words
-        
+    def test_script_present(self):
+        self.assertTrue(importlib.util.find_spec('air00'))
+    
+    def test_script_runs(self):
+        try:
+            self.assertEqual(air00.separation('Bonjour les gars', [' ']), ['onjour', 'les', 'gars'])
+        except Exception as e:
+            self.fail(f"Le script '{self.script_path}' a rencontré une erreur lors de l'éxecution : {e}")
 
-if __name__ == "__main__":
-    if words == ["Bonjour", "les", "gars"]
+if __name__ == '__main__':
     unittest.main()

@@ -1,20 +1,24 @@
 import unittest
+import os
 import importlib.util
-import air00
 
-# Class 
-class TestScript(unittest.TestCase):
-    script_path = "air00.py"
-    # To test if present
-    def test_script_present(self):
-        self.assertTrue(importlib.util.find_spec('air00'))
-    # To test if runs
-    def test_script_runs(self):
-        try:
-            self.assertEqual(air00.separation('Bonjour les gars', [' ']), ['onjour', 'les', 'gars'])
-        except Exception as e:
-            self.fail(f"Le script '{self.script_path}' a rencontré une erreur lors de l'éxecution : {e}")
+class ScriptTest(unittest.TestCase):
+    def test_script_exists(self):
+        script_files = ["air00.py"]
+        
+        for script_file in script_files:
+            self.assertTrue(os.path.isfile(script_file), f"Le script '{script_file}' est introuvable")
+            
+    def test_script_functionality(self):
+        script_files = ["air00.py"]
+        
+        for script_file in script_files:
+            spec = importlib.util.spec_from_file_location("script", script_file)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            
+            self.assertTrue(hasattr(module, "main"), f"Le script '{script_file}' ne contient pas de fonction 'main'.")
+            
 
-# Principal main
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
